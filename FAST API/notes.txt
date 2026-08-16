@@ -1,0 +1,36 @@
+          ┌────────────────────┐
+          │      CLIENT        │
+          │ (Web/Mobile/CLI)   │
+          └─────────┬──────────┘
+                    │
+        ┌───────────▼───────────┐
+        │     FASTAPI SERVER    │
+        │  ───────────────────  │
+        │  1️⃣ POST  → Create   │
+        │  2️⃣ GET   → Read     │
+        │  3️⃣ PUT   → Update   │
+        │  4️⃣ DELETE → Remove  │
+        └───────────┬───────────┘
+         
+1️⃣ CREATE (POST):-
+@app.post("/items/")
+def create_item(item: Item):
+   return {"id": 1, "name": item.name}
+
+2️⃣ READ (GET):-
+@app.get("/items/{id}")
+def read_item(id: int):
+    return {"id": id, "name": "Sample"}
+
+3️⃣ UPDATE (PUT):-
+@app.put("/items/{id}")
+def update_item(id: int, item: Item):
+    return {"id": id, "name": item.name}
+
+4️⃣ DELETE (DELETE):-
+@app.delete("/items/{id}")
+def delete_item(id: int):
+    return {"message": "Item deleted"}
+
+
+what is 
